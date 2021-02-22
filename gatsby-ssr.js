@@ -5,3 +5,30 @@
  */
 
 // You can delete this file if you're not using it
+import React from "react"
+import { Provider } from "react-redux"
+
+import Layout from "layout"
+
+import { ServerStyleSheet, StyleSheetManager } from "styled-components"
+
+const sheet = new ServerStyleSheet()
+
+export const onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents([sheet.getStyleElement()])
+}
+
+export const wrapRootElement = ({ element, ...rest }) => {
+  // Instantiating store in `wrapRootElement` handler ensures:
+  //  - there is fresh store for each SSR page
+  //  - it will be called only once in browser, when React mounts
+  store = createStore()
+
+  return (
+    <Provider store={store}>
+      <StyleSheetManager sheet={sheet.instance}>
+        <Layout>{element}</Layout>
+      </StyleSheetManager>
+    </Provider>
+  )
+}

@@ -29,7 +29,7 @@ module.exports = {
         selectors: path.join(__dirname, "src/selectors"),
         styles: path.join(__dirname, "src/styles"),
         state: path.join(__dirname, "src/state"),
-        layouts: path.join(__dirname, "src/layouts"),
+        layout: path.join(__dirname, "src/layout"),
         utils: path.join(__dirname, "src/utils"),
         data: path.join(__dirname, "src/data"),
         static: path.join(__dirname, "src/static"),

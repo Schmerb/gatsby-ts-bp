@@ -1,16 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
+import styled from "styled-components"
 
-import Layout from "components/layout"
 import SEO from "components/seo"
 
 const SecondPage = () => (
-  <Layout>
+  <Container>
     <SEO title="Page two" />
     <h1>Hi from the second page</h1>
     <p>Welcome to page 2</p>
     <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  </Container>
 )
 
 export default SecondPage
+
+const Container = styled.div`
+  color: #000;
+  padding: 15px;
+`

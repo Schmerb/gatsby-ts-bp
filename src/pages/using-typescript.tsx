@@ -1,9 +1,9 @@
 // If you don't want to use TypeScript you can delete this file!
 import React from "react"
 import { PageProps, Link, graphql } from "gatsby"
+import styled from "styled-components"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import SEO from "components/seo"
 
 type DataProps = {
   site: {
@@ -12,7 +12,7 @@ type DataProps = {
 }
 
 const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
-  <Layout>
+  <Container>
     <SEO title="Using TypeScript" />
     <h1>Gatsby supports TypeScript by default!</h1>
     <p>
@@ -36,7 +36,7 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       .
     </p>
     <Link to="/">Go back to the homepage</Link>
-  </Layout>
+  </Container>
 )
 
 export default UsingTypescript
@@ -47,4 +47,9 @@ export const query = graphql`
       buildTime(formatString: "YYYY-MM-DD hh:mm a z")
     }
   }
+`
+
+const Container = styled.div`
+  color: #000;
+  padding: 15px;
 `
