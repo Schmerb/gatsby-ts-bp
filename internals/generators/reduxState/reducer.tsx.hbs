@@ -1,0 +1,28 @@
+/**
+*
+* {{ properCase name }} Reducer
+*
+* */
+
+import { MY_ACTION } from 'state/{{ camelCase name }}/{{ camelCase name }}Actions';
+
+const initialState: {{ properCase name }}Props = {
+myStateProp: null, // TODO: CHANGE ME
+};
+
+export interface {{ properCase name }}Props {
+myStateProp: any; // TODO: CHANGE ME
+}
+
+export const {{ camelCase name }}Reducer = (state = initialState, action: any) => {
+switch (action.type) {
+case MY_ACTION:
+return {
+...state,
+myStateProp: action.myStateProp, // TODO: CHANGE ME
+};
+default:
+return state;
+}
+};
+export default {{ camelCase name }}Reducer;

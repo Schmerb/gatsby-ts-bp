@@ -1,0 +1,31 @@
+/**
+*
+* {{ properCase name }}
+*
+*/
+
+import React from 'react';
+import styled from 'styled-components';
+import { FormattedMessage } from 'react-intl';
+
+// Utils
+import messages from './messages';
+
+export const {{ properCase name }} = ({ }: {{ properCase name }}Props) => {
+
+return (
+<Container>
+  <h2>
+    <FormattedMessage {...messages.exampleMessage} />
+  </h2>
+</Container>
+);
+};
+
+export interface {{ properCase name }}Props {}
+
+export default {{ properCase name }};
+
+const Container = styled.div`
+border: 1px solid #000;
+`;

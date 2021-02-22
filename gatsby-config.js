@@ -1,3 +1,9 @@
+const path = require("path")
+
+require("dotenv").config({
+  path: `.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -11,6 +17,22 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        src: path.join(__dirname, "src"),
+        pages: path.join(__dirname, "src/pages"),
+        components: path.join(__dirname, "src/components"),
+        containers: path.join(__dirname, "src/containers"),
+        selectors: path.join(__dirname, "src/selectors"),
+        styles: path.join(__dirname, "src/styles"),
+        state: path.join(__dirname, "src/state"),
+        layouts: path.join(__dirname, "src/layouts"),
+        utils: path.join(__dirname, "src/utils"),
+        data: path.join(__dirname, "src/data"),
+        static: path.join(__dirname, "src/static"),
       },
     },
     `gatsby-transformer-sharp`,

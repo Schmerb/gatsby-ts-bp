@@ -1,0 +1,10 @@
+/**
+ *
+ * * Asynchronously loads {{ properCase name }}
+ *
+ */
+
+import loadable from 'utils/loadable';
+import { {{ properCase name }}Props } from './index';
+
+export default loadable<{{ properCase name }}Props>(() => import('./index'));

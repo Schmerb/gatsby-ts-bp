@@ -1,0 +1,62 @@
+/**
+*
+* {{ properCase name }}
+*
+*/
+
+import React, { memo } from 'react';
+import styled from 'styled-components';
+import { Formik } from 'formik';
+
+import Button from 'components/Elements/Button';
+import Link from 'components/Elements/Link';
+import TextField from 'components/lib/Formik/Field';
+
+import validate from './validate';
+
+const {{ properCase name }} = ({ initialValues, onSubmit }: {{ properCase name }}Props) => (
+<Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
+  {({ handleSubmit, isSubmitting }) => (
+  <Form onSubmit={handleSubmit}>
+    <TextField isPortal name="email" type="email" placeholder="Email*" />
+    <TextField isPortal name="password" type="password" placeholder="Password*" />
+
+    <Controls>
+      <StyledButton primary type="submit" disabled={isSubmitting}>
+        Submit
+      </StyledButton>
+    </Controls>
+  </Form>
+  )}
+</Formik>
+);
+
+export default memo({{ properCase name }});
+
+export interface {{ properCase name }}Props {
+initialValues: any;
+onSubmit: (values: any, formikBag: any) => void;
+}
+
+const Form = styled.form`
+max-width: 800px;
+margin: 0 auto;
+`;
+
+const Controls = styled.div`
+display: flex;
+align-items: center;
+justify-content: space-between;
+text-align: center;
+margin-top: 25px;
+`;
+
+const StyledButton = styled(Button)`
+font-family: 'NextPro-Light', sans-serif;
+font-size: 1.3rem;
+width: 140px;
+`;
+
+const StyledLink = styled(Link)`
+color: #888;
+`;
