@@ -4,12 +4,11 @@
  *
  *  */
 
-import { compose, createStore, applyMiddleware, combineReducers } from "redux"
-import thunk from "redux-thunk"
-import { createLogger } from "redux-logger"
+import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
-import appReducer from "state/app/appReducer"
-import modalsReducer from "state/modals/modalsReducer"
+import appReducer from 'state/app/appReducer';
 // import
 
 // import { SET_DIMENSIONS } from 'actions/display/types';
@@ -21,17 +20,16 @@ const logger = createLogger({
   // action.type !== SET_LOCATION &&
   // action.type !== SET_PREV_LOCATION,
   // collapsed: (getState, action) => action.type === SET_DIMENSIONS,
-})
+});
 
 export default () =>
   createStore(
     combineReducers({
       app: appReducer,
-      modals: modalsReducer,
       // reducer
     }),
     compose(
-      applyMiddleware(thunk, logger)
+      applyMiddleware(thunk, logger),
       // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    )
-  )
+    ),
+  );

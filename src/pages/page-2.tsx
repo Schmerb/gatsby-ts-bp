@@ -1,8 +1,8 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import SEO from "components/seo"
+import SEO from 'components/SEO';
 
 const SecondPage = () => (
   <Container>
@@ -11,11 +11,11 @@ const SecondPage = () => (
     <p>Welcome to page 2</p>
     <Link to="/">Go back to the homepage</Link>
   </Container>
-)
+);
 
-export default SecondPage
+export default SecondPage;
 
 const Container = styled.div`
   color: #000;
   padding: 15px;
-`
+`;

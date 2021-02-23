@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-import Image from "components/image"
-import SEO from "components/seo"
+import Image from 'components/image';
+import SEO from 'components/SEO';
 
 const IndexPage = () => (
   <Container>
@@ -17,11 +17,11 @@ const IndexPage = () => (
     <Link to="/page-2/">Go to page 2</Link> <br />
     <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
   </Container>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 const Container = styled.div`
   color: #000;
   padding: 15px;
-`
+`;
