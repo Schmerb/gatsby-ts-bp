@@ -9,6 +9,8 @@ import thunk from "redux-thunk"
 import { createLogger } from "redux-logger"
 
 import appReducer from "state/app/appReducer"
+import modalsReducer from "state/modals/modalsReducer"
+// import
 
 // import { SET_DIMENSIONS } from 'actions/display/types';
 // import { SET_LOCATION, SET_PREV_LOCATION } from 'actions/location';
@@ -25,6 +27,8 @@ export default () =>
   createStore(
     combineReducers({
       app: appReducer,
+      modals: modalsReducer,
+      // reducer
     }),
     compose(
       applyMiddleware(thunk, logger)
