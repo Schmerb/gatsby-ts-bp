@@ -12,7 +12,7 @@ import { Link } from 'gatsby';
 import { Router } from '@reach/router';
 
 // @ts-ignore
-import RedBullImgSrc from 'images/bull.jpeg';
+import RedBullImgSrc from 'images/bull.png';
 
 import Account from './Account';
 
@@ -21,9 +21,9 @@ console.log({ RedBullImgSrc });
 const ProfileHome = props => (
   <div>
     <Link to="..">Back to Home</Link>
-    <h2>
+    <Title>
       Hello, <Link to="/profile/account">Mike</Link>
-    </h2>
+    </Title>
     <img src={RedBullImgSrc} alt="" />
   </div>
 );
@@ -47,7 +47,11 @@ export interface ProfileProps {
 
 const Container = styled.div`
   border: 1px solid #000;
-  background-image: url('images/bull.jpeg');
+  /* background-image: url('assets/images/bull.png');
   background-size: contain;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+`;
+
+const Title = styled.h2`
+  font-family: 'Montserrat-Regular';
 `;

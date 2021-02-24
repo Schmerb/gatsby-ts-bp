@@ -4,34 +4,28 @@
  *
  *  */
 
-import React, { memo, useEffect } from "react"
+import React, { memo, useEffect } from 'react';
 import styled, {
   css,
   ThemeProvider,
   createGlobalStyle,
-} from "styled-components"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+} from 'styled-components';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from "components/Header"
-import Footer from "components/Footer"
+import Header from 'components/Header';
+import Footer from 'components/Footer';
 
-import Theme from "styles/theme"
+import Theme from 'styles/theme';
+import GlobalStyles from 'styles/globalStyles';
 
-import "./layout.css"
+import './layout.css';
 
-require("es6-promise").polyfill()
-require("fetch-everywhere")
-
-const GlobalStyle = createGlobalStyle`
-   html,
-    body {
-      overflow-y: hidden !important;
-    }
-`
+require('es6-promise').polyfill();
+require('fetch-everywhere');
 
 export const Layout = ({ children }: any) => {
-  useEffect(() => {}, [])
+  useEffect(() => {}, []);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -40,10 +34,10 @@ export const Layout = ({ children }: any) => {
         }
       }
     }
-  `)
+  `);
   return (
     <>
-      <GlobalStyle />
+      <GlobalStyles />
       <ThemeProvider theme={Theme}>
         <LayoutContainer>
           <Helmet>
@@ -58,19 +52,19 @@ export const Layout = ({ children }: any) => {
         </LayoutContainer>
       </ThemeProvider>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
 
 const LayoutContainer = styled.div`
   position: relative;
   color: #000;
-`
+`;
 
 const Main = styled.main<any>`
   color: #fff;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-`
+`;
