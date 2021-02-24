@@ -1,12 +1,12 @@
-const path = require("path")
+const path = require('path');
 
-require("dotenv").config({
+require('dotenv').config({
   path: `.env`,
-})
+});
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Gatsby TypeScript Boilerplate`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -20,19 +20,19 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-root-import",
+      resolve: 'gatsby-plugin-root-import',
       options: {
-        src: path.join(__dirname, "src"),
-        pages: path.join(__dirname, "src/pages"),
-        components: path.join(__dirname, "src/components"),
-        containers: path.join(__dirname, "src/containers"),
-        selectors: path.join(__dirname, "src/selectors"),
-        styles: path.join(__dirname, "src/styles"),
-        state: path.join(__dirname, "src/state"),
-        layout: path.join(__dirname, "src/layout"),
-        utils: path.join(__dirname, "src/utils"),
-        data: path.join(__dirname, "src/data"),
-        static: path.join(__dirname, "src/static"),
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        components: path.join(__dirname, 'src/components'),
+        containers: path.join(__dirname, 'src/containers'),
+        selectors: path.join(__dirname, 'src/selectors'),
+        styles: path.join(__dirname, 'src/styles'),
+        state: path.join(__dirname, 'src/state'),
+        layout: path.join(__dirname, 'src/layout'),
+        utils: path.join(__dirname, 'src/utils'),
+        data: path.join(__dirname, 'src/data'),
+        static: path.join(__dirname, 'src/static'),
       },
     },
     `gatsby-transformer-sharp`,
@@ -54,4 +54,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
