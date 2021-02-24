@@ -7,7 +7,6 @@ import Image from 'components/Image';
 import SEO from 'components/SEO';
 import NotFoundPage from 'components/NotFoundPage';
 import Profile from 'containers/Profile';
-import Account from 'containers/Profile/Account';
 
 const Home = ({ path }: any) => (
   <div>
@@ -20,17 +19,21 @@ const Home = ({ path }: any) => (
   </div>
 );
 
+const Navigation = props => (
+  <>
+    <Link to="/page-2/">Go to page 2</Link> <br />
+    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
+    <br />
+    <Link to="/profile">profile</Link>
+  </>
+);
+
 const IndexPage = () => {
-  console.log('/profile/*');
-  console.log('/account');
   return (
     <Container>
       <SEO title="Home" />
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-      <br />
-      <Link to="/profile">profile</Link>
       <Router>
+        <Navigation path="/" />
         <Home path="/" />
         <Profile path="/profile/*" />
         <NotFoundPage default />

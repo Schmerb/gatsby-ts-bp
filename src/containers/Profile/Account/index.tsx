@@ -17,6 +17,7 @@ const Account = ({ path }: AccountProps) => {
   console.log('Account');
   return (
     <Container>
+      <Link to="/profile">Back to profile</Link>
       <h2>My Account</h2>
       <Link to="/profile/account/settings">to settings</Link>
       <Router basepath="/profile/account">

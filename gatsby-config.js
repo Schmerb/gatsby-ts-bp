@@ -32,7 +32,15 @@ module.exports = {
         layout: path.join(__dirname, 'src/layout'),
         utils: path.join(__dirname, 'src/utils'),
         data: path.join(__dirname, 'src/data'),
-        static: path.join(__dirname, 'src/static'),
+        images: path.join(__dirname, 'src/images'),
+        static: path.join(__dirname, 'static'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: path.join(__dirname, 'src/images'),
       },
     },
     `gatsby-transformer-sharp`,
