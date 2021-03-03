@@ -9,7 +9,10 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
+import { Mobile, Desktop } from 'components/Utils';
+
 import StatCard from './StatCard';
+import StatsSlider from './StatsSlider';
 
 const StatCards = ({}: StatCardsProps) => {
   const data = [
@@ -41,13 +44,25 @@ const StatCards = ({}: StatCardsProps) => {
 
   return (
     <Container>
-      <List>
+      <HorizontalList>
         {data.map((dataItem: any) => (
           <li key={dataItem.label}>
             <StatCard data={dataItem} />
           </li>
         ))}
-      </List>
+      </HorizontalList>
+      {/* <Mobile>
+        <StatsSlider slides={data} />
+      </Mobile>
+      <Desktop>
+        <List>
+          {data.map((dataItem: any) => (
+            <li key={dataItem.label}>
+              <StatCard data={dataItem} />
+            </li>
+          ))}
+        </List>
+      </Desktop> */}
     </Container>
   );
 };
@@ -58,6 +73,25 @@ export interface StatCardsProps {}
 
 const Container = styled.div`
   margin-top: 40px;
+  padding-left: 25px;
+  @media screen and (min-width: 1290px) {
+    padding-left: 0;
+  }
+`;
+
+const HorizontalList = styled.ul`
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1239px) {
+    overflow-x: scroll;
+  }
+
+  li {
+    &:not(:last-of-type) {
+      margin-right: 18px;
+    }
+  }
 `;
 
 const List = styled.ul`

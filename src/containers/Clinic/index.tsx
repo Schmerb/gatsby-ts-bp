@@ -14,8 +14,10 @@ import StateCards from './components/StatCards';
 const Clinic = ({}: ClinicProps) => {
   return (
     <Container>
-      <Title>Allurion Central London Weight Loss Clinic</Title>
-      <SubTitle>You are an admin</SubTitle>
+      <TextWrapper>
+        <Title>Allurion Central London Weight Loss Clinic</Title>
+        <SubTitle>You are an admin</SubTitle>
+      </TextWrapper>
       <StateCards />
     </Container>
   );
@@ -28,7 +30,9 @@ export interface ClinicProps {}
 const Container = styled.div``;
 
 const Title = styled.h2`
+  color: ${({ theme }) => theme.colors.Primary};
   font-size: 26px;
+  line-height: 24px;
   font-weight: 700px;
   font-weight: bolder;
   margin-top: 40px;
@@ -39,4 +43,15 @@ const Title = styled.h2`
   `}
 `;
 
-const SubTitle = styled.h4``;
+const TextWrapper = styled.div`
+  padding-left: 25px;
+  padding-right: 25px;
+
+  @media screen and (min-width: 1290px) {
+    padding: 0;
+  }
+`;
+
+const SubTitle = styled.h4`
+  color: ${({ theme }) => theme.colors.Primary};
+`;

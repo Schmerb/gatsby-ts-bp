@@ -86,18 +86,25 @@ const InnerWrapper = styled.div`
   height: 100%;
   max-width: ${({ theme }) => theme.media.MAX_WIDTH}px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 25px;
+  @media screen and (min-width: 1290px) {
+    padding: 0;
+  }
 `;
 
 const LogoImage = styled.img`
   height: 32px;
   width: 32px;
+
+  ${({ theme }) => theme.media.max.mobile`
+    height: 18px;
+    width: 18px;
+  `}
 `;
 
 const Title = styled.h1`
   font-size: 26px;
   margin: 0;
-  margin-top: 5px;
 
   ${({ theme }) => theme.media.max.mobile`
     font-size: 14.46px;
@@ -118,13 +125,10 @@ const Title = styled.h1`
 const NavControls = styled.nav`
   display: flex;
   align-items: center;
-  margin-top: 5px;
-  /* border: 1px solid limegreen; */
 `;
 
 const Circles = styled.div`
   display: flex;
-  /* border: 1px solid lightblue; */
 `;
 
 const Circle = styled(Link)`
@@ -150,9 +154,9 @@ const LogoutLink = styled(Link)`
   color: #fff;
   display: flex;
   justify-content: center;
-  width: 100px;
   font-size: 14px;
   font-weight: 400;
+  margin-left: 40px;
   transition: opacity 0.5s;
 
   &:hover {

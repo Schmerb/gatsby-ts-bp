@@ -11,7 +11,7 @@ import { css } from 'styled-components';
 //
 export const breakpoints: BreakpointTypes = {
   desktopXXL: 1600,
-  desktopXL: 1200,
+  desktopXL: 1220,
   desktop: 992,
   tablet: 768,
   mobile: 576,

@@ -16,7 +16,6 @@ export default ClinicPage;
 
 const Container = styled.div`
   color: #000;
-  padding: 15px;
   margin: 0 auto;
   max-width: ${({ theme }) => theme.media.MAX_WIDTH}px;
 `;

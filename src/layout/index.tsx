@@ -19,6 +19,9 @@ import Footer from 'components/Footer';
 import Theme from 'styles/theme';
 import GlobalStyles from 'styles/globalStyles';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import './layout.css';
 
 require('es6-promise').polyfill();
