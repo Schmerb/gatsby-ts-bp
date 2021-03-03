@@ -45,37 +45,42 @@ const Table = ({}: TableProps) => {
         disableFilters: true,
       },
       {
-        Header: 'Age',
         accessor: 'age',
         disableFilters: true,
         // disableSortBy: true,
         // defaultCanFilter: false,
+        Header: () => <Centered>Age</Centered>,
+        Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
-        Header: 'Current Weight (lbs)',
         accessor: 'currentWeight',
         disableFilters: true,
+        Header: () => <Centered>Current Weight (lbs)</Centered>,
+        Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
-        Header: 'Starting Weight',
         accessor: 'startingWeight',
         disableFilters: true,
+        Header: () => <Centered>Starting Weight</Centered>,
+        Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
-        Header: 'Weight Loss (lbs)',
         accessor: 'weightLoss',
         disableFilters: true,
+        Header: () => <Centered>Weight Loss (lbs)</Centered>,
+        Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
-        Header: 'TBWL %',
         accessor: 'tbwl',
-        Cell: ({ value }: any) => <span>{value}%</span>,
         disableFilters: true,
+        Header: () => <Centered>TBWL %</Centered>,
+        Cell: ({ value }: any) => <Centered>{value}%</Centered>,
       },
       {
-        Header: 'Days since Balloon Placement',
         accessor: 'daysSince',
         disableFilters: true,
+        Header: () => <Centered>Days since Balloon Placement</Centered>,
+        Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
     ],
     [],
@@ -83,13 +88,13 @@ const Table = ({}: TableProps) => {
 
   return (
     <Container>
-      <div>
+      <SearchWrapper>
         <input
           placeholder="search"
           value={search}
           onChange={(evt: any) => setSearch(evt.target.value)}
         />
-      </div>
+      </SearchWrapper>
       <TableUI columns={columns} data={data} search={search} />
     </Container>
   );
@@ -103,5 +108,24 @@ const Container = styled.div`
   color: #000;
   font-size: 16px;
   overflow: auto;
-  border: 1px solid red;
+`;
+
+const SearchWrapper = styled.div`
+  margin-bottom: 15px;
+
+  input {
+    min-width: 200px;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    outline: none;
+    border: 1px solid lightgrey;
+    /* ${({ theme }) => theme.styles.boxShadows['0']}; */
+  }
+`;
+
+const Centered = styled.div`
+  width: 100%;
+  text-align: center;
+  /* border: 1px solid red; */
 `;

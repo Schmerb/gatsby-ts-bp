@@ -12,8 +12,8 @@ const newPerson = () => {
   const currentWeight = Math.floor(Math.random() * 240);
   const startingWeight = Math.floor(Math.random() * 280);
   return {
-    firstName: namor.generate({ words: 1, numbers: 0 }),
-    lastName: namor.generate({ words: 1, numbers: 0 }),
+    firstName: namor.generate({ words: 1, numbers: 2 }),
+    lastName: namor.generate({ words: 1, numbers: 3 }),
     age: Math.floor(Math.random() * 30),
     currentWeight,
     startingWeight,

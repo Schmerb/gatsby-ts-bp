@@ -1,13 +1,13 @@
 /**
  *
  *
- * TableUI
+ * DivTableUI
  *
  *
  */
 
 import React, { memo, useMemo, useEffect } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   useTable,
   useSortBy,
@@ -18,15 +18,13 @@ import {
   // useExpanded,
 } from 'react-table';
 
-import Arrow from 'components/svg/Arrow';
-
 import {
   GlobalFilter,
   DefaultColumnFilter,
   SelectColumnFilter,
 } from './filtering';
 
-const TableUI = ({ data, columns, search }: TableUIProps) => {
+const DivTableUI = ({ data, columns, search }: DivTableUIProps) => {
   // const filterTypes: any = useMemo(
   //   () => ({
   //     // Add a new fuzzyTextFilterFn filter type.
@@ -93,58 +91,43 @@ const TableUI = ({ data, columns, search }: TableUIProps) => {
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 // Add the sorting props to control sorting. For this example
                 // we can add them into the header props
-                <th {...column.getHeaderProps()}>
-                  <THWrapper isSorted={column.isSorted}>
-                    <HeaderTextWrapper {...column.getSortByToggleProps()}>
+                <TableHeader {...column.getHeaderProps()}>
+                  <THWrapper>
+                    <span {...column.getSortByToggleProps()}>
                       {column.render('Header')}
-                    </HeaderTextWrapper>
-                    {/* {column.canFilter ? (
-                      <div>{column.render('Filter')}</div>
-                    ) : null} */}
-                    <SortingWrapper isSorted={column.isSorted}>
-                      <Arrow
-                        style={
-                          !column.isSortedDesc
-                            ? { transform: 'rotate(180deg)' }
-                            : {}
-                        }
-                      />
-                    </SortingWrapper>
+                    </span>
+                    <div>
+                      {column.canFilter ? column.render('Filter') : null}
+                    </div>
+                    {/* Add a sort direction indicator */}
+                    <span>
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? ' 🔽'
+                          : ' 🔼'
+                        : ''}
+                    </span>
                   </THWrapper>
-                </th>
+                </TableHeader>
               ))}
-            </tr>
+            </TableRow>
           ))}
-          {/* <tr>
-            <th
-              colSpan={visibleColumns.length}
-              style={{
-                textAlign: 'left',
-              }}
-            >
-              <GlobalFilter
-                preGlobalFilteredRows={preGlobalFilteredRows}
-                globalFilter={state.globalFilter}
-                setGlobalFilter={setGlobalFilter}
-              />
-            </th>
-          </tr> */}
         </thead>
         <tbody {...getTableBodyProps()}>
           {firstPageRows.map((row, i) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   );
                 })}
-              </tr>
+              </TableRow>
             );
           })}
         </tbody>
@@ -154,53 +137,31 @@ const TableUI = ({ data, columns, search }: TableUIProps) => {
   );
 };
 
-export default memo(TableUI);
+export default memo(DivTableUI);
 
-export interface TableUIProps {
+export interface DivTableUIProps {
   data: any;
   columns: any;
   search: string;
 }
 
-const THWrapper = styled.div<any>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
+const TableRow = styled.div`
   display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding-left: 15px;
-
-  ${({ isSorted }) =>
-    isSorted &&
-    css`
-      background-color: #d5dcd8;
-    `}
 `;
 
-const HeaderTextWrapper = styled.div`
+const THWrapper = styled.div`
+  /* display: flex;
+  align-items: center; */
   width: 100%;
-`;
-
-const SortingWrapper = styled.span<any>`
-  display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
-  opacity: 0;
-  transition: opacity 0.15s;
-
-  ${({ isSorted }) =>
-    isSorted &&
-    css`
-      opacity: 1;
-    `}
+  height: 66px;
+  padding: 15px;
+  padding-left: 10px;
 `;
 
 const Container = styled.div`
   table {
     width: 100%;
+    border: 1px solid lightgrey;
 
     thead {
       font-size: 16px;
@@ -209,13 +170,11 @@ const Container = styled.div`
     }
 
     th {
-      position: relative;
       background-color: rgba(215, 225, 221, 0.66);
       color: black;
       font-weight: bold;
-      font-size: 14px;
       width: 150px;
-      height: 60px;
+      height: 66px;
       padding: 0px;
     }
 
@@ -228,9 +187,10 @@ const Container = styled.div`
     }
 
     td {
+      background: papayawhip;
       font-size: 16px;
       padding: 15px;
-      /* border: solid 1px gray; */
+      border: solid 1px gray;
     }
 
     th,
@@ -239,16 +199,6 @@ const Container = styled.div`
 
       :last-child {
         border-right: 0;
-      }
-    }
-
-    tbody {
-      tr {
-        &:nth-of-type(2n) {
-          td {
-            background-color: rgba(234, 234, 234, 0.5);
-          }
-        }
       }
     }
   }
