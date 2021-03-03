@@ -13,6 +13,7 @@ import { Mobile, Desktop } from 'components/Utils';
 
 import StatCard from './StatCard';
 import StatsSlider from './StatsSlider';
+import StatsScrollingList from './StatsScrollingList';
 
 const StatCards = ({}: StatCardsProps) => {
   const data = [
@@ -44,13 +45,15 @@ const StatCards = ({}: StatCardsProps) => {
 
   return (
     <Container>
-      <HorizontalList>
+      <StatsScrollingList data={data} />
+      {/* <HorizontalList>
         {data.map((dataItem: any) => (
           <li key={dataItem.label}>
             <StatCard data={dataItem} />
           </li>
         ))}
-      </HorizontalList>
+      </HorizontalList> */}
+      {/* <StatsSlider slides={data} /> */}
       {/* <Mobile>
         <StatsSlider slides={data} />
       </Mobile>
