@@ -10,12 +10,15 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import {
   useTable,
-  useGroupBy,
-  useFilters,
   useSortBy,
-  useExpanded,
-  usePagination,
+  useGlobalFilter,
+  // useGroupBy,
+  // useFilters,
+  // useExpanded,
+  // usePagination,
 } from 'react-table';
+
+import { GlobalFilter } from './filtering';
 
 const TableUI = ({ data, columns }: TableUIProps) => {
   const {
@@ -24,11 +27,17 @@ const TableUI = ({ data, columns }: TableUIProps) => {
     headerGroups,
     rows,
     prepareRow,
-  } = useTable(
+    // filtering
+    state,
+    visibleColumns,
+    preGlobalFilteredRows,
+    setGlobalFilter,
+  }: any = useTable(
     {
       columns,
       data,
     },
+    useGlobalFilter,
     useSortBy,
   );
 
@@ -59,6 +68,20 @@ const TableUI = ({ data, columns }: TableUIProps) => {
               ))}
             </tr>
           ))}
+          <tr>
+            <th
+              colSpan={visibleColumns.length}
+              style={{
+                textAlign: 'left',
+              }}
+            >
+              <GlobalFilter
+                preGlobalFilteredRows={preGlobalFilteredRows}
+                globalFilter={state.globalFilter}
+                setGlobalFilter={setGlobalFilter}
+              />
+            </th>
+          </tr>
         </thead>
         <tbody {...getTableBodyProps()}>
           {firstPageRows.map((row, i) => {

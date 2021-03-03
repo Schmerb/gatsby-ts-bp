@@ -6,7 +6,7 @@
  *
  */
 
-import React, { memo, useMemo } from 'react';
+import React, { memo, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import {
   useTable,
@@ -22,6 +22,8 @@ import rawData from './data';
 import makeData from './makeData';
 
 const Table = ({}: TableProps) => {
+  const [search, setSearch] = useState('');
+
   const data = useMemo(() => makeData(2000), []);
 
   const columns = useMemo(
@@ -67,6 +69,13 @@ const Table = ({}: TableProps) => {
   return (
     <Container>
       <h2>Table</h2>
+      <div>
+        <input
+          placeholder="search"
+          value={search}
+          onChange={(evt: any) => setSearch(evt.target.value)}
+        />
+      </div>
       <TableUI columns={columns} data={data} />
     </Container>
   );

@@ -50,4 +50,8 @@ export default IndexPage;
 const Container = styled.div`
   color: #000;
   padding: 15px;
+
+  a {
+    font-size: 20px;
+  }
 `;
