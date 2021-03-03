@@ -14,9 +14,9 @@ import StatCard from '../StatCard';
 
 // One item component
 // selected prop will be passed
-const MenuItem = ({ item, selected }) => {
+const MenuItem = ({ item }) => {
   return (
-    <div className={`menu-item ${selected ? 'active' : ''}`}>
+    <div className="menu-item ">
       <StatCard data={item} />
     </div>
   );
@@ -24,28 +24,24 @@ const MenuItem = ({ item, selected }) => {
 
 // All items component
 // Important! add unique key
-export const Menu = (list, selected) =>
-  list.map(item => {
+export const Menu = (list: any) =>
+  list.map((item: any) => {
     const { label } = item;
 
-    return <MenuItem key={label} item={item} selected={selected} />;
+    return <MenuItem key={label} item={item} />;
   });
 
-const defaultSelected = 'item1';
-
 const StatsScrollingList = ({ data }: StatsScrollingListProps) => {
-  const [selected, setSelected] = useState(defaultSelected);
   return (
     <Container>
       <ScrollMenu
         hideArrows
         alignCenter={false}
-        data={Menu(data, selected)}
-        selected={selected}
-        onSelect={(...props) => {
-          console.log({ props });
-          console.log('selected');
-        }}
+        data={Menu(data)}
+        // onSelect={(...props) => {
+        //   console.log({ props });
+        //   console.log('selected');
+        // }}
       />
     </Container>
   );
@@ -58,11 +54,16 @@ export interface StatsScrollingListProps {
 }
 
 const Container = styled.div`
+  div {
+    border: none !important;
+    outline: none !important;
+  }
   .menu-item {
     margin-right: 18px;
     user-select: none;
     cursor: pointer;
     border: none;
+    outline: none;
   }
 
   .scroll-menu-arrow {
