@@ -172,7 +172,7 @@ const THWrapper = styled.div<any>`
   align-items: center;
   width: 100%;
   height: 100%;
-  /* padding-left: 25px; */
+  padding-right: 5px;
 
   ${({ isSorted }) =>
     isSorted &&
@@ -182,10 +182,11 @@ const THWrapper = styled.div<any>`
 `;
 
 const SortingWrapper = styled.span<any>`
+  display: block;
   position: absolute;
   top: 50%;
   right: 0;
-  display: inline-block;
+  width: 30px;
   opacity: 0;
   transition: opacity 0.15s;
   transform: translateY(-50%);
