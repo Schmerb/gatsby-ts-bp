@@ -97,11 +97,12 @@ const TableUI = ({ data, columns, search }: TableUIProps) => {
               {headerGroup.headers.map(column => (
                 // Add the sorting props to control sorting. For this example
                 // we can add them into the header props
-                <th {...column.getHeaderProps()}>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   <THWrapper isSorted={column.isSorted}>
-                    <HeaderTextWrapper {...column.getSortByToggleProps()}>
+                    {column.render('Header')}
+                    {/* <HeaderTextWrapper {...column.getSortByToggleProps()}>
                       {column.render('Header')}
-                    </HeaderTextWrapper>
+                    </HeaderTextWrapper> */}
                     {/* {column.canFilter ? (
                       <div>{column.render('Filter')}</div>
                     ) : null} */}
@@ -171,7 +172,7 @@ const THWrapper = styled.div<any>`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding-left: 15px;
+  /* padding-left: 25px; */
 
   ${({ isSorted }) =>
     isSorted &&
@@ -180,16 +181,14 @@ const THWrapper = styled.div<any>`
     `}
 `;
 
-const HeaderTextWrapper = styled.div`
-  width: 100%;
-`;
-
 const SortingWrapper = styled.span<any>`
+  position: absolute;
+  top: 50%;
+  right: 0;
   display: inline-block;
-  margin-left: 10px;
-  margin-right: 10px;
   opacity: 0;
   transition: opacity 0.15s;
+  transform: translateY(-50%);
 
   ${({ isSorted }) =>
     isSorted &&
@@ -214,7 +213,7 @@ const Container = styled.div`
       color: black;
       font-weight: bold;
       font-size: 14px;
-      width: 150px;
+      min-width: 150px;
       height: 60px;
       padding: 0px;
     }
@@ -230,6 +229,7 @@ const Container = styled.div`
     td {
       font-size: 16px;
       padding: 15px;
+      padding-left: 0;
       /* border: solid 1px gray; */
     }
 
@@ -244,6 +244,7 @@ const Container = styled.div`
 
     tbody {
       tr {
+        height: 45px;
         &:nth-of-type(2n) {
           td {
             background-color: rgba(234, 234, 234, 0.5);

@@ -35,51 +35,61 @@ const Table = ({}: TableProps) => {
   const columns = useMemo(
     () => [
       {
-        Header: 'First Name',
+        Header: () => <LeftAlign>First Name</LeftAlign>,
         accessor: 'firstName',
         disableFilters: true,
+        Cell: ({ value }: any) => <PaddingLeft>{value}</PaddingLeft>,
       },
       {
-        Header: 'Last Name',
+        Header: () => <LeftAlign>Last Name</LeftAlign>,
         accessor: 'lastName',
         disableFilters: true,
+        Cell: ({ value }: any) => <PaddingLeft>{value}</PaddingLeft>,
       },
       {
+        Header: () => <Centered>Age</Centered>,
         accessor: 'age',
         disableFilters: true,
         // disableSortBy: true,
         // defaultCanFilter: false,
-        Header: () => <Centered>Age</Centered>,
         Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
+        Header: () => (
+          <Centered>
+            Current <br /> Weight (lbs)
+          </Centered>
+        ),
         accessor: 'currentWeight',
         disableFilters: true,
-        Header: () => <Centered>Current Weight (lbs)</Centered>,
         Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
+        Header: () => (
+          <Centered>
+            Startingt <br /> Weight (lbs)
+          </Centered>
+        ),
         accessor: 'startingWeight',
         disableFilters: true,
-        Header: () => <Centered>Starting Weight</Centered>,
         Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
+        Header: () => <Centered>Weight Loss (lbs)</Centered>,
         accessor: 'weightLoss',
         disableFilters: true,
-        Header: () => <Centered>Weight Loss (lbs)</Centered>,
         Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
       {
+        Header: () => <Centered>TBWL %</Centered>,
         accessor: 'tbwl',
         disableFilters: true,
-        Header: () => <Centered>TBWL %</Centered>,
         Cell: ({ value }: any) => <Centered>{value}%</Centered>,
       },
       {
+        Header: () => <Centered>Days since Balloon Placement</Centered>,
         accessor: 'daysSince',
         disableFilters: true,
-        Header: () => <Centered>Days since Balloon Placement</Centered>,
         Cell: ({ value }: any) => <Centered>{value}</Centered>,
       },
     ],
@@ -107,7 +117,7 @@ export interface TableProps {}
 const Container = styled.div`
   color: #000;
   font-size: 16px;
-  overflow: auto;
+  /* overflow: auto; */
 `;
 
 const SearchWrapper = styled.div`
@@ -124,8 +134,20 @@ const SearchWrapper = styled.div`
   }
 `;
 
+const PaddingLeft = styled.div`
+  padding-left: 35px;
+`;
+
+const LeftAlign = styled.div`
+  width: 100%;
+  text-align: left;
+  padding-left: 35px;
+`;
+
 const Centered = styled.div`
   width: 100%;
   text-align: center;
+  /* padding-left: 5px; */
+  /* margin-left: 10px; */
   /* border: 1px solid red; */
 `;
