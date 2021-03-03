@@ -9,9 +9,9 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
 
-const StatCard = ({ data, isSlide = false }: StatCardProps) => {
+const StatCard = ({ data }: StatCardProps) => {
   return (
-    <Container isSlide={isSlide}>
+    <Container>
       <Label>{data.label}</Label>
       <Value>{data.value}</Value>
     </Container>
@@ -21,22 +21,17 @@ const StatCard = ({ data, isSlide = false }: StatCardProps) => {
 export default memo(StatCard);
 
 export interface StatCardProps {
-  isSlide?: boolean;
+  // isSlide?: boolean;
   data: {
     label: string;
     value: string | number;
   };
 }
 
-const Container = styled.div<any>`
+const Container = styled.div`
   color: #111836;
   background-color: #fff;
-  ${({ isSlide }) =>
-    !isSlide &&
-    css`
-      width: 120px;
-    `}
-  width: 120px;
+  width: 150px;
   height: 80px;
   padding-left: 17px;
   padding-top: 14px;

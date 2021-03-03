@@ -77,9 +77,6 @@ export interface StatCardsProps {}
 const Container = styled.div`
   margin-top: 40px;
   padding-left: 25px;
-  @media screen and (min-width: 1290px) {
-    padding-left: 0;
-  }
 `;
 
 const HorizontalList = styled.ul`

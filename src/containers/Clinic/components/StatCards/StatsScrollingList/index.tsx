@@ -36,6 +36,7 @@ const StatsScrollingList = ({ data }: StatsScrollingListProps) => {
     <Container>
       <ScrollMenu
         hideArrows
+        inertiaScrolling
         alignCenter={false}
         data={Menu(data)}
         // onSelect={(...props) => {

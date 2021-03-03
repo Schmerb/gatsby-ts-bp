@@ -48,10 +48,6 @@ const Title = styled.h2`
 const TextWrapper = styled.div`
   padding-left: 25px;
   padding-right: 25px;
-
-  @media screen and (min-width: 1290px) {
-    padding: 0;
-  }
 `;
 
 const SubTitle = styled.h4`

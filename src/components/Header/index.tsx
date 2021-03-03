@@ -87,9 +87,6 @@ const InnerWrapper = styled.div`
   max-width: ${({ theme }) => theme.media.MAX_WIDTH}px;
   margin: 0 auto;
   padding: 0 25px;
-  @media screen and (min-width: 1290px) {
-    padding: 0;
-  }
 `;
 
 const LogoImage = styled.img`
