@@ -22,16 +22,3 @@ exports.onCreatePage = async ({ page, actions }) => {
     createPage(page);
   }
 };
-
-// exports.onCreateBabelConfig = ({ actions }) => {
-//   if (process.env.NODE_ENV !== 'development') {
-//     actions.setBabelPlugin({
-//       name: '@babel/plugin-transform-regenerator',
-//       options: {},
-//     });
-//     actions.setBabelPlugin({
-//       name: '@babel/plugin-transform-runtime',
-//       options: {},
-//     });
-//   }
-// };

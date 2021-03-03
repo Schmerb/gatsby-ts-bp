@@ -13,19 +13,15 @@ const Home = ({ path }: any) => (
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+    {/* <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
-    </div>
+    </div> */}
   </div>
 );
 
 const Navigation = props => (
   <>
-    <Link to="/socket">Socket</Link> <br />
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    <br />
-    <Link to="/profile">profile</Link>
+    <Link to="/clinic">clinic</Link>
     <br />
     <Link to="/table">table</Link>
   </>

@@ -9,19 +9,17 @@ const range = len => {
 };
 
 const newPerson = () => {
-  const statusChance = Math.random();
+  const currentWeight = Math.floor(Math.random() * 240);
+  const startingWeight = Math.floor(Math.random() * 280);
   return {
     firstName: namor.generate({ words: 1, numbers: 0 }),
     lastName: namor.generate({ words: 1, numbers: 0 }),
     age: Math.floor(Math.random() * 30),
-    visits: Math.floor(Math.random() * 100),
-    progress: Math.floor(Math.random() * 100),
-    status:
-      statusChance > 0.66
-        ? 'relationship'
-        : statusChance > 0.33
-        ? 'complicated'
-        : 'single',
+    currentWeight,
+    startingWeight,
+    weightLoss: startingWeight - currentWeight,
+    tbwl: Math.floor(Math.random() * 100),
+    daysSince: Math.floor(Math.random() * 100),
   };
 };
 

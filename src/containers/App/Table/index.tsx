@@ -18,8 +18,14 @@ import {
 } from 'react-table';
 
 import TableUI from './TableUI';
-import rawData from './data';
 import makeData from './makeData';
+
+import { SelectColumnFilter } from './filtering';
+
+//
+// filter types from lib
+//
+type filters = 'equals' | 'between' | 'includes';
 
 const Table = ({}: TableProps) => {
   const [search, setSearch] = useState('');
@@ -29,38 +35,47 @@ const Table = ({}: TableProps) => {
   const columns = useMemo(
     () => [
       {
-        Header: 'Name',
-        columns: [
-          {
-            Header: 'First Name',
-            accessor: 'firstName',
-          },
-          {
-            Header: 'Last Name',
-            accessor: 'lastName',
-          },
-        ],
+        Header: 'First Name',
+        accessor: 'firstName',
+        disableFilters: true,
       },
       {
-        Header: 'Info',
-        columns: [
-          {
-            Header: 'Age',
-            accessor: 'age',
-          },
-          {
-            Header: 'Visits',
-            accessor: 'visits',
-          },
-          {
-            Header: 'Status',
-            accessor: 'status',
-          },
-          {
-            Header: 'Profile Progress',
-            accessor: 'progress',
-          },
-        ],
+        Header: 'Last Name',
+        accessor: 'lastName',
+        disableFilters: true,
+      },
+      {
+        Header: 'Age',
+        accessor: 'age',
+        disableFilters: true,
+        // disableSortBy: true,
+        // defaultCanFilter: false,
+      },
+      {
+        Header: 'Current Weight (lbs)',
+        accessor: 'currentWeight',
+        disableFilters: true,
+      },
+      {
+        Header: 'Starting Weight',
+        accessor: 'startingWeight',
+        disableFilters: true,
+      },
+      {
+        Header: 'Weight Loss (lbs)',
+        accessor: 'weightLoss',
+        disableFilters: true,
+      },
+      {
+        Header: 'TBWL %',
+        accessor: 'tbwl',
+        Cell: ({ value }: any) => <span>{value}%</span>,
+        disableFilters: true,
+      },
+      {
+        Header: 'Days since Balloon Placement',
+        accessor: 'daysSince',
+        disableFilters: true,
       },
     ],
     [],

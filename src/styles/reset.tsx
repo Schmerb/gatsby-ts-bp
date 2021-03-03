@@ -99,7 +99,7 @@ export const ResetStyles = css`
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
+    font-size: 1rem;
     font: inherit;
     vertical-align: baseline;
   }
@@ -152,7 +152,7 @@ export const ResetStyles = css`
   }
 
   body {
-    font-size: 62.5%;
+    font-size: 1rem;
   }
 `;
 

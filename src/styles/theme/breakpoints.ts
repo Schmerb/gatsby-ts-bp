@@ -4,7 +4,7 @@
  *
  *   */
 
-import { css } from "styled-components"
+import { css } from 'styled-components';
 
 //
 // Breakpoints
@@ -16,10 +16,10 @@ export const breakpoints: BreakpointTypes = {
   tablet: 768,
   mobile: 576,
   smallphones: 321,
-}
+};
 
 // const MAX_WIDTH = 1200;
-export const MAX_WIDTH = 1040
+export const MAX_WIDTH = 1220;
 //
 // Media Queries
 //
@@ -31,11 +31,11 @@ export const min = Object.keys(breakpoints).reduce(
       @media (min-width: ${breakpoints[label] / 16}em) {
         ${css.call(undefined, ...args)}
       }
-    `
-    return acc
+    `;
+    return acc;
   },
-  {}
-)
+  {},
+);
 
 // Max-width
 export const max = Object.keys(breakpoints).reduce(
@@ -44,25 +44,25 @@ export const max = Object.keys(breakpoints).reduce(
       @media (max-width: ${(breakpoints[label] - 1) / 16}em) {
         ${css.call(undefined, ...args)}
       }
-    `
-    return acc
+    `;
+    return acc;
   },
-  {}
-)
+  {},
+);
 
 export default {
   breakpoints,
   min,
   max,
   MAX_WIDTH,
-}
+};
 
 interface BreakpointTypes {
-  [key: string]: number
-  desktopXXL: number
-  desktopXL: number
-  desktop: number
-  tablet: number
-  mobile: number
-  smallphones: number
+  [key: string]: number;
+  desktopXXL: number;
+  desktopXL: number;
+  desktop: number;
+  tablet: number;
+  mobile: number;
+  smallphones: number;
 }
