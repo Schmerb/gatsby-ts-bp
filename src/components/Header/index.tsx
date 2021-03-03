@@ -4,9 +4,9 @@
  *
  *  */
 
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const Header = ({ siteTitle }: any) => (
   <Container>
@@ -24,25 +24,28 @@ const Header = ({ siteTitle }: any) => (
       </Title>
     </InnerWrapper>
   </Container>
-)
+);
 
 interface Header {
-  siteTitle: string
+  siteTitle: string;
 }
 
-export default Header
+export default Header;
 
 const Container = styled.header`
   background: rebeccapurple;
-  margin-bottom: 1.45rem;
-`
+  height: 80px;
+`;
 
 const InnerWrapper = styled.div`
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
   max-width: 960;
-  padding: 1.45rem 1.0875rem;
-`
+  margin: 0 auto;
+`;
 
 const Title = styled.h1`
+  font-size: 24px;
   margin: 0;
-`
+`;
