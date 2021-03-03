@@ -198,6 +198,8 @@ const SortingWrapper = styled.span<any>`
 `;
 
 const Container = styled.div`
+  overflow-x: auto;
+
   table {
     width: 100%;
 

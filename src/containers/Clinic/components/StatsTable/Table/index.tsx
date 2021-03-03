@@ -52,7 +52,11 @@ const Table = ({}: TableProps) => {
         disableFilters: true,
         // disableSortBy: true,
         // defaultCanFilter: false,
-        Cell: ({ value }: any) => <Centered>{value}</Centered>,
+        Cell: ({ value }: any) => (
+          <Centered>
+            <Offset>{value}</Offset>
+          </Centered>
+        ),
       },
       {
         Header: () => (
@@ -62,7 +66,11 @@ const Table = ({}: TableProps) => {
         ),
         accessor: 'currentWeight',
         disableFilters: true,
-        Cell: ({ value }: any) => <Centered>{value}</Centered>,
+        Cell: ({ value }: any) => (
+          <Centered>
+            <Offset>{value}</Offset>
+          </Centered>
+        ),
       },
       {
         Header: () => (
@@ -72,13 +80,21 @@ const Table = ({}: TableProps) => {
         ),
         accessor: 'startingWeight',
         disableFilters: true,
-        Cell: ({ value }: any) => <Centered>{value}</Centered>,
+        Cell: ({ value }: any) => (
+          <Centered>
+            <Offset>{value}</Offset>
+          </Centered>
+        ),
       },
       {
         Header: () => <Centered>Weight Loss (lbs)</Centered>,
         accessor: 'weightLoss',
         disableFilters: true,
-        Cell: ({ value }: any) => <Centered>{value}</Centered>,
+        Cell: ({ value }: any) => (
+          <Centered>
+            <Offset>{value}</Offset>
+          </Centered>
+        ),
       },
       {
         Header: () => <Centered>TBWL %</Centered>,
@@ -90,7 +106,11 @@ const Table = ({}: TableProps) => {
         Header: () => <Centered>Days since Balloon Placement</Centered>,
         accessor: 'daysSince',
         disableFilters: true,
-        Cell: ({ value }: any) => <Centered>{value}</Centered>,
+        Cell: ({ value }: any) => (
+          <Centered>
+            <Offset>{value}</Offset>
+          </Centered>
+        ),
       },
     ],
     [],
@@ -105,6 +125,7 @@ const Table = ({}: TableProps) => {
           onChange={(evt: any) => setSearch(evt.target.value)}
         />
       </SearchWrapper>
+
       <TableUI columns={columns} data={data} search={search} />
     </Container>
   );
@@ -117,7 +138,6 @@ export interface TableProps {}
 const Container = styled.div`
   color: #000;
   font-size: 16px;
-  /* overflow: auto; */
 `;
 
 const SearchWrapper = styled.div`
@@ -130,24 +150,24 @@ const SearchWrapper = styled.div`
     padding-bottom: 10px;
     outline: none;
     border: 1px solid lightgrey;
-    /* ${({ theme }) => theme.styles.boxShadows['0']}; */
   }
 `;
 
 const PaddingLeft = styled.div`
-  padding-left: 35px;
+  padding-left: 39px;
 `;
 
 const LeftAlign = styled.div`
   width: 100%;
   text-align: left;
-  padding-left: 35px;
+  padding-left: 39px;
+`;
+
+const Offset = styled.span`
+  margin-left: 15px;
 `;
 
 const Centered = styled.div`
   width: 100%;
   text-align: center;
-  /* padding-left: 5px; */
-  /* margin-left: 10px; */
-  /* border: 1px solid red; */
 `;

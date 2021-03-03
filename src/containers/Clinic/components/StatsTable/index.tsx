@@ -27,7 +27,7 @@ export interface StatsTableProps {}
 const Container = styled.div`
   margin-top: 60px;
   padding-left: 25px;
-  padding-right: 25px;
+  /* padding-right: 25px; */
 
   @media screen and (min-width: 1290px) {
     padding: 0;
