@@ -83,7 +83,6 @@ const Table = ({}: TableProps) => {
 
   return (
     <Container>
-      <h2>Table</h2>
       <div>
         <input
           placeholder="search"
@@ -91,7 +90,7 @@ const Table = ({}: TableProps) => {
           onChange={(evt: any) => setSearch(evt.target.value)}
         />
       </div>
-      <TableUI columns={columns} data={data} />
+      <TableUI columns={columns} data={data} search={search} />
     </Container>
   );
 };
@@ -103,7 +102,6 @@ export interface TableProps {}
 const Container = styled.div`
   color: #000;
   font-size: 16px;
-  padding: 25px;
   overflow: auto;
   border: 1px solid red;
 `;

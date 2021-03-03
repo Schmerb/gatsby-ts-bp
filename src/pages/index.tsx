@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Router } from '@reach/router';
 
-import Image from 'components/Image';
+// import Image from 'components/Image';
 import SEO from 'components/SEO';
 import NotFoundPage from 'components/NotFoundPage';
 import Profile from 'containers/Profile';
@@ -23,7 +23,7 @@ const Navigation = props => (
   <>
     <Link to="/clinic">clinic</Link>
     <br />
-    <Link to="/table">table</Link>
+    <Link to="/patient">patient</Link>
   </>
 );
 

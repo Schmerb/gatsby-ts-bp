@@ -9,7 +9,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 
-import StateCards from './components/StatCards';
+import StatCards from './components/StatCards';
+import StatsTable from './components/StatsTable';
 
 const Clinic = ({}: ClinicProps) => {
   return (
@@ -18,7 +19,8 @@ const Clinic = ({}: ClinicProps) => {
         <Title>Allurion Central London Weight Loss Clinic</Title>
         <SubTitle>You are an admin</SubTitle>
       </TextWrapper>
-      <StateCards />
+      <StatCards />
+      <StatsTable />
     </Container>
   );
 };
