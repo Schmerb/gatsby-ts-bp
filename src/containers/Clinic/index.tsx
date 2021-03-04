@@ -11,6 +11,7 @@ import styled from 'styled-components';
 
 import StatCards from './components/StatCards';
 import StatsTable from './components/StatsTable';
+import ClinicTrends from './components/ClinicTrends';
 
 const Clinic = ({}: ClinicProps) => {
   return (
@@ -21,6 +22,7 @@ const Clinic = ({}: ClinicProps) => {
       </TextWrapper>
       <StatCards />
       <StatsTable />
+      <ClinicTrends />
     </Container>
   );
 };

@@ -146,7 +146,6 @@ export interface TableProps {}
 const Container = styled.div`
   color: #000;
   font-size: 16px;
-  padding-bottom: 100px;
 `;
 
 const SearchWrapper = styled.div`
@@ -186,8 +185,9 @@ const StyledLink = styled.a`
   align-items: center;
   color: ${({ theme }) => theme.colors.Primary};
   font-size: 16px;
-  text-decoration: none;
+  height: 28px;
   margin-top: 37px;
+  text-decoration: none;
 
   svg {
     margin-left: 10px;

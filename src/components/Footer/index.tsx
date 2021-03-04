@@ -22,5 +22,6 @@ export default memo(Footer);
 export interface FooterProps {}
 
 const Container = styled.div`
+  height: 200px;
   border: 1px solid #000;
 `;
