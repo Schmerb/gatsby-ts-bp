@@ -8,19 +8,12 @@
 
 import React, { memo, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import {
-  useTable,
-  useGroupBy,
-  useFilters,
-  useSortBy,
-  useExpanded,
-  usePagination,
-} from 'react-table';
+
+import CarrotDown, { CarrotUp } from 'components/svg/CarrotDown';
 
 import TableUI from './TableUI';
-import makeData from './makeData';
-
-import { SelectColumnFilter } from './filtering';
+import makeData from './utils/makeData';
+import { SelectColumnFilter } from './utils/filtering';
 
 //
 // filter types from lib
@@ -28,9 +21,10 @@ import { SelectColumnFilter } from './filtering';
 type filters = 'equals' | 'between' | 'includes';
 
 const Table = ({}: TableProps) => {
+  const [showAll, setShowAll] = useState(false);
   const [search, setSearch] = useState('');
 
-  const data = useMemo(() => makeData(2000), []);
+  const data = useMemo(() => makeData(100), []);
 
   const columns = useMemo(
     () => [
@@ -126,7 +120,21 @@ const Table = ({}: TableProps) => {
         />
       </SearchWrapper>
 
-      <TableUI columns={columns} data={data} search={search} />
+      <TableUI
+        showAll={showAll}
+        columns={columns}
+        data={data}
+        search={search}
+      />
+      <StyledLink
+        href="#!"
+        onClick={(evt: any) => {
+          evt.preventDefault();
+          setShowAll(!showAll);
+        }}
+      >
+        SHOW ALL PATIENTS {showAll ? <CarrotUp /> : <CarrotDown />}
+      </StyledLink>
     </Container>
   );
 };
@@ -138,6 +146,7 @@ export interface TableProps {}
 const Container = styled.div`
   color: #000;
   font-size: 16px;
+  padding-bottom: 100px;
 `;
 
 const SearchWrapper = styled.div`
@@ -170,4 +179,17 @@ const Offset = styled.span`
 const Centered = styled.div`
   width: 100%;
   text-align: center;
+`;
+
+const StyledLink = styled.a`
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.colors.Primary};
+  font-size: 16px;
+  text-decoration: none;
+  margin-top: 37px;
+
+  svg {
+    margin-left: 10px;
+  }
 `;

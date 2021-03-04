@@ -21,7 +21,6 @@ const StatCard = ({ data }: StatCardProps) => {
 export default memo(StatCard);
 
 export interface StatCardProps {
-  // isSlide?: boolean;
   data: {
     label: string;
     value: string | number;
@@ -38,7 +37,7 @@ const Container = styled.div`
   padding-bottom: 14px;
 
   ${({ theme }) => theme.media.min.tablet`
-    width: 188px;
+    width: 185px;
   `}
 `;
 

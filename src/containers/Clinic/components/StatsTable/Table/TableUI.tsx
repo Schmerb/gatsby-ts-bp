@@ -24,9 +24,9 @@ import {
   GlobalFilter,
   DefaultColumnFilter,
   SelectColumnFilter,
-} from './filtering';
+} from './utils/filtering';
 
-const TableUI = ({ data, columns, search }: TableUIProps) => {
+const TableUI = ({ data, columns, search, showAll }: TableUIProps) => {
   // const filterTypes: any = useMemo(
   //   () => ({
   //     // Add a new fuzzyTextFilterFn filter type.
@@ -84,7 +84,7 @@ const TableUI = ({ data, columns, search }: TableUIProps) => {
 
   // We don't want to render all 2000 rows for this example, so cap
   // it at 10 for this use case
-  const firstPageRows = rows.slice(0, 10);
+  const firstPageRows = showAll ? rows : rows.slice(0, 10);
 
   console.log({ firstPageRows });
 
@@ -142,7 +142,12 @@ const TableUI = ({ data, columns, search }: TableUIProps) => {
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                    <td
+                      {...cell.getCellProps()}
+                      className={cell.column.isSorted ? 'isSorted' : ''}
+                    >
+                      {cell.render('Cell')}
+                    </td>
                   );
                 })}
               </tr>
@@ -150,7 +155,6 @@ const TableUI = ({ data, columns, search }: TableUIProps) => {
           })}
         </tbody>
       </table>
-      <br />
     </Container>
   );
 };
@@ -161,6 +165,7 @@ export interface TableUIProps {
   data: any;
   columns: any;
   search: string;
+  showAll: boolean;
 }
 
 const THWrapper = styled.div<any>`
@@ -199,6 +204,7 @@ const SortingWrapper = styled.span<any>`
 `;
 
 const Container = styled.div`
+  width: 101%; /** hack to avoid scrollbars showing on desktop full view */
   overflow-x: auto;
 
   table {
@@ -213,7 +219,7 @@ const Container = styled.div`
     th {
       position: relative;
       background-color: rgba(215, 225, 221, 0.66);
-      color: black;
+      color: ${({ theme }) => theme.colors.Primary};
       font-weight: bold;
       font-size: 14px;
       min-width: 150px;
@@ -222,17 +228,24 @@ const Container = styled.div`
     }
 
     tr {
-      :last-child {
+      :last-of-type {
         td {
-          border-bottom: 0;
+          &.isSorted {
+            border-bottom: 1px solid #d5dcd8;
+          }
         }
       }
     }
 
     td {
+      color: ${({ theme }) => theme.colors.Primary};
       font-size: 16px;
       padding: 15px;
       padding-left: 0;
+      &.isSorted {
+        border-left: 1px solid #d5dcd8;
+        border-right: 1px solid #d5dcd8;
+      }
       /* border: solid 1px gray; */
     }
 

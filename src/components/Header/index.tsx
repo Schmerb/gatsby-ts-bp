@@ -87,6 +87,10 @@ const InnerWrapper = styled.div`
   max-width: ${({ theme }) => theme.media.MAX_WIDTH}px;
   margin: 0 auto;
   padding: 0 25px;
+  transition: padding-right 0.5s;
+  @media screen and (min-width: 1290px) {
+    padding-right: 0px;
+  }
 `;
 
 const LogoImage = styled.img`
