@@ -32,6 +32,7 @@ const Table = ({}: TableProps) => {
         Header: () => <LeftAlign>First Name</LeftAlign>,
         accessor: 'firstName',
         disableFilters: true,
+        sticky: true,
         Cell: ({ value }: any) => <PaddingLeft>{value}</PaddingLeft>,
       },
       {

@@ -97,7 +97,10 @@ const TableUI = ({ data, columns, search, showAll }: TableUIProps) => {
               {headerGroup.headers.map(column => (
                 // Add the sorting props to control sorting. For this example
                 // we can add them into the header props
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <th
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
+                  className={column.sticky ? 'sticky' : ''}
+                >
                   <THWrapper isSorted={column.isSorted}>
                     {column.render('Header')}
                     {/* <HeaderTextWrapper {...column.getSortByToggleProps()}>
@@ -141,10 +144,12 @@ const TableUI = ({ data, columns, search, showAll }: TableUIProps) => {
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
+                  const sortedClass = cell.column.isSorted ? 'isSorted' : '';
+                  const stickyClass = cell.column.sticky ? 'sticky' : '';
                   return (
                     <td
                       {...cell.getCellProps()}
-                      className={cell.column.isSorted ? 'isSorted' : ''}
+                      className={`${sortedClass} ${stickyClass}`}
                     >
                       {cell.render('Cell')}
                     </td>
@@ -218,13 +223,20 @@ const Container = styled.div`
 
     th {
       position: relative;
-      background-color: rgba(215, 225, 221, 0.66);
+      /* background-color: rgba(215, 225, 221, 0.66); */
+      background-color: #e3e9e6;
       color: ${({ theme }) => theme.colors.Primary};
       font-weight: bold;
       font-size: 14px;
       min-width: 150px;
       height: 60px;
       padding: 0px;
+
+      &.sticky {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+      }
     }
 
     tr {
@@ -238,6 +250,7 @@ const Container = styled.div`
     }
 
     td {
+      background-color: ${({ theme }) => theme.colors.OffWhite};
       color: ${({ theme }) => theme.colors.Primary};
       font-size: 16px;
       padding: 15px;
@@ -245,6 +258,11 @@ const Container = styled.div`
       &.isSorted {
         border-left: 1px solid #d5dcd8;
         border-right: 1px solid #d5dcd8;
+      }
+      &.sticky {
+        position: sticky;
+        left: 0;
+        z-index: 1;
       }
       /* border: solid 1px gray; */
     }

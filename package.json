@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "chart.js": "^2.9.4",
+    "chartjs-plugin-style": "^0.5.0",
     "es6-promise": "^4.2.8",
     "fetch-everywhere": "^1.0.5",
     "gatsby": "^2.32.3",
@@ -36,6 +38,7 @@
     "swr-sync-storage": "^1.0.1"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.31",
     "@types/react-helmet": "^6.1.0",
     "@types/react-slick": "^0.23.4",
     "@types/react-table": "^7.0.28",

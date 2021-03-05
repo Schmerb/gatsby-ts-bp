@@ -45,6 +45,6 @@ const Title = styled.h2`
 
   ${({ theme }) => theme.media.min.tablet`
     font-size: 20px;
-    line-height: 19.6pxpx;
+    line-height: 19.6px;
   `}
 `;
